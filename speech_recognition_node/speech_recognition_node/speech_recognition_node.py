@@ -20,7 +20,19 @@ torch.set_num_threads(1)
 import numpy as np
 import collections
 import torchaudio
-torchaudio.set_audio_backend("soundfile")
+# 旧API系
+if hasattr(torchaudio, "set_audio_backend"):
+    try:
+        torchaudio.set_audio_backend("soundfile")
+    except Exception:
+        pass
+# 新API系
+else:
+    try:
+        import torchaudio.backend.soundfile_backend  # noqa: F401
+    except Exception:
+        pass
+
 
 from std_msgs.msg import String, Float32
 from audio_common_msgs.msg import AudioData

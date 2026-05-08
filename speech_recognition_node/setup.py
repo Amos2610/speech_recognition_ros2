@@ -24,7 +24,7 @@ setup(
     maintainer_email='yano.yuuga158@mail.kyutech.jp',
     description='TODO: Package description',
     license='TODO: License declaration',
-    tests_require=['pytest'],
+    # tests_require=['pytest'],
     entry_points={
         'console_scripts': [
             'audio_recorder_node = speech_recognition_node.audio_recorder_node:main',
